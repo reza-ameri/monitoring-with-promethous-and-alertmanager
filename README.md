@@ -22,8 +22,8 @@ All services are containerized and run via `docker-compose`. Prometheus scrapes 
 
 
                       +-------------------+          +--------------------+
-                      |     Prometheus    | ------>  |       Grafana      |
-                      +-------------------+          +ــــــــــــــــــــ+  --------    
+                      |     Prometheus    | ------>  |       Grafana      | ----------
+                      +--------------------           --------------------           |
                         ^              |                                             |
                         |              v                                             v
    +----------------+   |         +-------------------+                     Users view dashboards
