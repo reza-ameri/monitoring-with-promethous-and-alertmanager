@@ -36,7 +36,7 @@ All services are containerized and run via `docker-compose`. Prometheus scrapes 
                                        v
                             Email / Slack (optional)
 
-
+'''
 - **Prometheus** scrapes metrics from **Node Exporter**.
 - **Grafana** queries **Prometheus** to visualize the data.
 - **Prometheus** sends alerts to **Alertmanager**.
