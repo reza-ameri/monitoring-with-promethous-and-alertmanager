@@ -19,7 +19,7 @@ This project sets up a complete containerized monitoring stack using Docker. It 
 ## 🧱 Architecture
 
 All services are containerized and run via `docker-compose`. Prometheus scrapes metrics from Node Exporter and itself. Grafana uses Prometheus as a data source. Alertmanager is integrated with Prometheus for custom alerting.
-
+'''text
 
                       +-------------------+          +--------------------+
                       |     Prometheus    | ------>  |       Grafana      | ----------
