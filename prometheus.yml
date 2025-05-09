@@ -1,12 +1,16 @@
-global:
-  scrape_interval: 15s
+global:  # Global configuration for Prometheus scrape intervals.
+  scrape_interval: 15s  # Scrape metrics every 15 seconds
+# Rule files to define alerting and recording rules.
+# In this case, the alerting rules are loaded from the "rules.yml" file.
 rule_files:
   - "rules.yml"
+#Alerting configuration, specifying the Alertmanager instances to send alerts to.
 alerting:
   alertmanagers:
     - static_configs:
         - targets:
           - "alertmanager:9093"
+#Scrape configuration, defining the jobs and targets to be scraped by Prometheus
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:

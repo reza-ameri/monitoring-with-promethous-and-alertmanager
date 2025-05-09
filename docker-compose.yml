@@ -25,14 +25,26 @@ services:
      ports:
        - "9100:9100"
      volumes:
+          # Mount /proc directory from host to provide access to system-level metrics (CPU, memory, etc.)
        - /proc:/host/proc:ro
+          # Mount /sys directory from host for accessing kernel and hardware info
        - /sys:/host/sys:ro
+         # Mount entire root filesystem in read-only mode to allow node-exporter access to full system data
        - /:/rootfs:ro
      command:
-      - '--path.procfs=/host/proc'
-      - '--path.sysfs=/host/sys'
-      - '--path.rootfs=/rootfs'
-      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+      - '--path.procfs=/host/proc'  #Path to the host's proc filesystem, for process information
+      - '--path.sysfs=/host/sys'     # Path to the host's sys filesystem, for kernel and device configuration
+      - '--path.rootfs=/rootfs'   # Path to the host's root filesystem, for system file access 
+      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'   #Command configuration for ignoring specific filesystem mount points.
+# This regular expression excludes the following directories from being collected:
+# - /sys
+# - /proc
+# - /dev
+# - /host
+# - /etc
+# These directories are typically system or virtual filesystems that do not provide useful
+# disk usage metrics for monitoring purposes.
+# The regular expression ensures these paths are ignored at the root level or in their subdirectories
   alertmanager:
      image: prom/alertmanager
      ports:
