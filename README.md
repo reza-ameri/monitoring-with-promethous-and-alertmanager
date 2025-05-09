@@ -1,4 +1,3 @@
-'''text
 # Monitoring Stack with Prometheus, Alertmanager, Grafana and Node Exporter
 
 This project sets up a complete containerized monitoring stack using Docker. It includes:
@@ -54,5 +53,5 @@ All services are containerized and run via `docker-compose`. Prometheus scrapes 
 git clone https://github.com/reza-ameri/monitoring-with-prometheus-and-alertmanager.git
 cd monitoring-with-prometheus-and-alertmanager
 
-```markdown
+
 
